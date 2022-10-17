@@ -1,0 +1,34 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >lima-cid_s</div>
+  <script type="text/javascript">
+    
+
+    var myBox = document.getElementById("my_bouncing_box");
+
+    let FPS = 60;
+    var xPosition = 1;
+    var yPosition = 1;
+    var xSpeed = 4;
+    var ySpeed = 4;
+
+    function update(){
+        myBox.style.left = xPosition;
+        myBox.style.top = yPosition;
+    }
+
+    setInterval(()=>{
+        if(xPosition + myBox.clientWidth >= window.innerWidth || xPosition <= 0){
+            xSpeed = -xSpeed;
+        }
+        if(yPosition + myBox.clientHeight >= window.innerHeight || yPosition <= 0){
+            ySpeed = -ySpeed;
+        }
+        xPosition += xSpeed;
+        yPosition += ySpeed;
+
+        update();
+    },1000/FPS)
+  
+    
+  </script>
+</html>
